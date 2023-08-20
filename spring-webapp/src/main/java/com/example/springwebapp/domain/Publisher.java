@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 public class Publisher {
@@ -16,6 +18,9 @@ public class Publisher {
   private String city;
   private String state;
   private String zip;
+
+  @OneToMany(mappedBy = "publisher")
+  private Set<Book> books;
 
   public Long getId() {
     return id;
@@ -65,11 +70,12 @@ public class Publisher {
     this.zip = zip;
   }
 
+  public Set<Book> getBooks() {
+    return books;
+  }
 
-  @Override
-  public String toString() {
-    return "Publisher [id=" + id + ", name=" + name + ", address=" + address + ", city=" + city
-        + ", state=" + state + ", zip=" + zip + "]";
+  public void setBooks(Set<Book> books) {
+    this.books = books;
   }
 
   @Override
@@ -101,5 +107,15 @@ public class Publisher {
     }
     return true;
   }
+
+
+
+  @Override
+  public String toString() {
+    return "Publisher [id=" + id + ", name=" + name + ", address=" + address + ", city=" + city
+        + ", state=" + state + ", zip=" + zip + ", books=" + books + "]";
+  }
+
+
 
 }
