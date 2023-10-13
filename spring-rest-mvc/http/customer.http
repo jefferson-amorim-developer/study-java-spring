@@ -1,0 +1,46 @@
+
+@url = {{protocol}}://{{host}}:{{port}}/{{context}}/{{version}}/customer
+@resourceId = e1f9e1c8-5d87-4c9a-bc6b-524688feacef
+
+
+### LIST
+
+GET {{url}} HTTP/1.1
+Accept: application/json
+
+### GET BY ID
+
+GET {{url}}/{{resourceId}} HTTP/1.1
+Accept: application/json
+
+### CREATE NEW
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "New Customer 01"
+}
+
+### UPDATE
+
+PUT {{url}}/{{resourceId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Updated Customer 01"
+}
+
+### PATCH
+
+PATCH {{url}}/{{resourceId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Patched Customer 01"
+}
+
+### DELETE
+
+DELETE {{url}}/{{resourceId}} HTTP/1.1
+Accept: application/json

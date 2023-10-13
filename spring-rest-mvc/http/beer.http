@@ -1,0 +1,58 @@
+
+@url = {{protocol}}://{{host}}:{{port}}/{{context}}/{{version}}/beer
+@resourceId = b3ea2af4-58fd-4172-a886-67245347ddee
+
+
+### LIST
+
+GET {{url}} HTTP/1.1
+Accept: application/json
+
+### GET BY ID
+
+GET {{url}}/{{resourceId}} HTTP/1.1
+Accept: application/json
+
+### CREATE NEW
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "beerName": "MORE ONE",
+    "beerStyle": "IPA",
+    "upc": "123153412",
+    "quantityOnHand": 100,
+    "price": 12.59
+}
+
+### UPDATE
+
+PUT {{url}}/{{resourceId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "beerName": "Best of the World 2",
+    "beerStyle": "LAGER",
+    "upc": "98987987",
+    "quantityOnHand": 300,
+    "price": 27.59
+}
+
+### PATCH
+
+PATCH {{url}}/{{resourceId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "beerName": "Best of the World 3",
+    "beerStyle": "IPA",
+    "upc": "98987987",
+    "quantityOnHand": 100,
+    "price": 14.79
+}
+
+### DELETE
+
+DELETE {{url}}/{{resourceId}} HTTP/1.1
+Accept: application/json
